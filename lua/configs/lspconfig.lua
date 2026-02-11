@@ -1,7 +1,22 @@
 require("nvchad.configs.lspconfig").defaults()
 
-local servers = { "html", "cssls", "ts_ls", "emmet_ls", "astro", "biome", "intelephense", "phpactor" }
+local lspconfig = require("lspconfig")
 
-vim.lsp.enable(servers)
+local servers = {
+  "html",
+  "cssls",
+  "ts_ls",
+  "emmet_ls",
+  "astro",
+  "biome",
+  "intelephense",
+  "phpactor",
+}
 
--- read :h vim.lsp.config for changing options of lsp servers
+lspconfig.ts_ls.setup({
+  autostart = true,
+})
+
+for _, server in ipairs(servers) do
+  lspconfig[server].setup({})
+end
