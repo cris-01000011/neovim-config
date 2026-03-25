@@ -1,6 +1,6 @@
 require("nvchad.configs.lspconfig").defaults()
 
-local lspconfig = require("lspconfig")
+local lspconfig = require "lspconfig"
 
 local servers = {
   "html",
@@ -13,10 +13,11 @@ local servers = {
   "phpactor",
 }
 
-lspconfig.ts_ls.setup({
-  autostart = true,
-})
-
 for _, server in ipairs(servers) do
-  lspconfig[server].setup({})
+  lspconfig[server].setup {}
 end
+
+lspconfig.postgres_lsp.setup {
+  cmd = { "postgres-lsp", "stdio" },
+  filetypes = { "sql" },
+}
