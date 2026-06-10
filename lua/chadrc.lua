@@ -10,8 +10,9 @@ M.base46 = {
   transparency = false,
   hl_override = {
     -- editor
-    Normal = { bg = "#181825" },
-    NormalFloat = { bg = "#181825" },
+    Normal = { bg = "#11111f" },
+    NormalFloat = { bg = "#11111f" },
+    FloatBorder = { fg = "#b4befe" },
 
     -- NvimTree
     NvimTreeNormal = { bg = "#11111f" },
@@ -21,20 +22,32 @@ M.base46 = {
     NvimTreeCursorLine = { bg = "#1e1e2e" },
 
     -- Tabufline
-    TbBufOn = { bg = "#181825" },
-    TbBufOnClose = { bg = "#181825" },
-    TbFill = { bg = "#232634" },
-    TbBufOnModified = { bg = "#181825" },
+    TbBufOn = { bg = "#11111f" },
+    TbBufOnClose = { bg = "#11111f" },
+    TbFill = { bg = "#11111f" },
+    TbBufOnModified = { bg = "#11111f" },
+    TbTabOn = { bg = "#11111f" },
+    TbTabOff = { bg = "#11111f" },
+    TbBufOff = { bg = "#11111f" },
+    TbBufOffClose = { bg = "#11111f" },
+    TbBufOffModified = { bg = "#11111f" },
+    TbTabNewBtn = { bg = "#11111f" },
+    TbThemeToggleBtn = { bg = "#11111f" },
 
     -- cmp
-    CmpDoc = { bg = "#292c3c" },
-    CmpDocBorder = { fg = "#292c3c", bg = "#292c3c" },
+    CmpDoc = { bg = "#181825" },
+    CmpDocBorder = { fg = "#181825", bg = "#181825" },
+    CmpBorder = { fg = "#181825", bg = "#181825" },
+    CmpPmenu = { fg = "#181825", bg = "#181825" },
+    CmpSel = { fg = "#181825", bg = "#181825" },
+    CodeActionMenuMenuKind = { fg = "#181825", bg = "#181825" },
 
     -- others
-    FloatBorder = { fg = "#b4befe" },
     Comment = { fg = "#5e5c5c" },
     ["@comment"] = { italic = true },
     Visual = { bg = "dark_purple", fg = "darker_black" },
+    Search = { bg = "dark_purple", fg = "darker_black" },
+    IncSearch = { bg = "dark_purple", fg = "darker_black" },
   },
 }
 

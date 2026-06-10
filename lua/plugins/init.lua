@@ -2,6 +2,10 @@ return {
   {
     "mrcjkb/rustaceanvim",
     version = "^6", -- Recommended
+    ft = "rust",
+    dependencies = {
+      "mfussenegger/nvim-dap",
+    },
     lazy = false, -- This plugin is already lazy
     settings = {
       ["rust-analyzer"] = {
@@ -12,6 +16,71 @@ return {
           typeHints = { enable = false },
         },
       },
+    },
+  },
+  {
+    "theHamsta/nvim-dap-virtual-text",
+    config = true,
+    dependencies = {
+      "mfussenegger/nvim-dap",
+    },
+  },
+  {
+    "rcarriga/nvim-dap-ui",
+    config = true,
+    keys = {
+      {
+        "<leader>du",
+        function()
+          require("dapui").toggle {}
+        end,
+        desc = "Dap UI",
+      },
+    },
+    dependencies = {
+      "jay-babu/mason-nvim-dap.nvim",
+      "leoluz/nvim-dap-go",
+      "mfussenegger/nvim-dap-python",
+      "nvim-neotest/nvim-nio",
+      "theHamsta/nvim-dap-virtual-text",
+    },
+  },
+  {
+    "mfussenegger/nvim-dap",
+  },
+  {
+    "jay-babu/mason-nvim-dap.nvim",
+    -- overrides `require("mason-nvim-dap").setup(...)`
+    opts = function(_, opts)
+      -- add more things to the ensure_installed table protecting against community packs modifying it
+      opts.ensure_installed = require("astronvim.utils").list_insert_unique(opts.ensure_installed, {
+        "codelldb",
+        "cpptools",
+      })
+    end,
+  },
+  {
+    "ldelossa/nvim-dap-projects",
+  },
+  {
+    "NeogitOrg/neogit",
+    lazy = true,
+    dependencies = {
+      "nvim-lua/plenary.nvim", -- required
+
+      -- Only one of these is needed.
+      "sindrets/diffview.nvim", -- optional
+      -- "esmuellert/codediff.nvim",      -- optional
+
+      -- Only one of these is needed.
+      "nvim-telescope/telescope.nvim", -- optional
+      -- "ibhagwan/fzf-lua",              -- optional
+      -- "nvim-mini/mini.pick",           -- optional
+      -- "folke/snacks.nvim",             -- optional
+    },
+    cmd = "Neogit",
+    keys = {
+      { "<leader>gg", "<cmd>Neogit<cr>", desc = "Show Neogit UI" },
     },
   },
   {

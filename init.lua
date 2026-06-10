@@ -35,3 +35,6 @@ require "autocmds"
 vim.schedule(function()
   require "mappings"
 end)
+
+require "configs.nvim-dap"
+vim.opt.clipboard = "unnamedplus"
